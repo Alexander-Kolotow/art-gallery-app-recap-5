@@ -9,6 +9,7 @@ export function ArtPieces({ pieces }) {
             title={piece.name}
             image={piece.imageSource}
             artist={piece.artist}
+            slug={piece.slug}
           ></ArtPiecePreview>
         );
       })}

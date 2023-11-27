@@ -1,5 +1,7 @@
 import useSWR from "swr";
 import { ArtPieces } from "../components/ArtPieces/ArtPieces.js";
+import { Spotlight } from "../components/Spotlight/Spotlight.js";
+import Link from "next/link.js";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -26,11 +28,15 @@ export default function HomePage() {
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
-  console.log(pictures);
+  //
+  const randomIndex = Math.floor(Math.random() * pictures.length);
+  const randomPicture = pictures[randomIndex];
 
   return (
     <>
-      <ArtPieces pieces={pictures}></ArtPieces>
+      <ArtPieces pieces={pictures}/>
+      <Spotlight image={randomPicture.imageSource}
+            artist={randomPicture.artist}/>
     </>
   );
 }

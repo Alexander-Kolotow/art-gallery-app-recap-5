@@ -21,6 +21,9 @@ const fetcher = async (url) => {
 };
 
 export default function App({ Component, pageProps }) {
+  // initialize the local state with an empty array
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+
   const {
     data: pictures,
     error,
@@ -28,7 +31,26 @@ export default function App({ Component, pageProps }) {
   } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
-  console.log(pictures);
+
+  function handleToggleFavorite(slug) {
+    setArtPiecesInfo((prevArtPiecesInfo) => {
+      // find the movie in the state
+      const piece = prevArtPiecesInfo.find((piece) => piece.slug === slug);
+
+      // if the movie is already in the state, toggle the isFavorite property
+      if (piece) {
+        return prevArtPiecesInfo.map((piece) =>
+          piece.slug === slug
+            ? { ...piece, isFavorite: !piece.isFavorite }
+            : piece
+        );
+      }
+
+      // if the movie is not in the state, add it with isFavorite set to true
+      return [...prevArtPiecesInfo, { slug, isFavorite: true }];
+    });
+  }
+
   return (
     <Layout>
       <SWRConfig
@@ -37,23 +59,13 @@ export default function App({ Component, pageProps }) {
         }}
       >
         <GlobalStyle />
-        <Component {...pageProps} pictures={pictures} />
+        <Component
+          {...pageProps}
+          pictures={pictures}
+          handleToggleFavorite={handleToggleFavorite}
+          artPiecesInfo={artPiecesInfo}
+        />
       </SWRConfig>
     </Layout>
   );
 }
-
-/* function MyApp({ Component, pageProps }) {
-  const [artPieces, setArtPieces] = useState([]);
-
-  useEffect(() => {
-    // Your data fetching logic goes here
-    // Example: fetch('/api/art-pieces').then(response => setArtPieces(response));
-  }, []);
-
-  return (
-    <AppContext.Provider value={{ artPieces, setArtPieces }}>
-      <Component {...pageProps} />
-    </AppContext.Provider>
-  );
-} */

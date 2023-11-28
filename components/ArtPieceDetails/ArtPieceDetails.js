@@ -3,12 +3,12 @@ import Image from "next/image";
 export function ArtPieceDetails({ piece }) {
   return (
     <>
-      <h1>{piece.title}</h1>
+      <h1>{piece.name}</h1>
       <Image
-        src={piece.image}
+        src={piece.imageSource}
         width={500}
         height={500}
-        alt={`Picture of the ${title}`}
+        alt={`Picture of the ${piece.name}`}
       />
       <figcaption>by {piece.artist}</figcaption>
       <ul>

@@ -4,9 +4,9 @@ import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 export function Spotlight({
   image,
   artist,
-  handleToggleFavorite,
-  slug,
   isFavorite,
+  slug,
+  handleToggleFavorite
 }) {
   return (
     <>

@@ -1,10 +1,10 @@
-import { ArtPieces } from "../components/ArtPieces/ArtPieces.js";
+//import { ArtPieces } from "../components/ArtPieces/ArtPieces.js";
 import { Spotlight } from "../components/Spotlight/Spotlight.js";
 
 export default function SpotlightPage({
   pictures,
   handleToggleFavorite,
-  artPiecesInfo,
+  artPiecesInfo
 }) {
   //
   const randomIndex = Math.floor(Math.random() * pictures.length);
@@ -20,7 +20,7 @@ export default function SpotlightPage({
         image={randomPicture.imageSource}
         artist={randomPicture.artist}
         slug={randomPicture.slug}
-        onToggleFavorite={handleToggleFavorite}
+        onToggleFavorite={() => handleToggleFavorite(randomPicture.slug)}
         isFavorite={isFavorite}
       />
     </>

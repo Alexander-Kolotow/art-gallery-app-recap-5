@@ -60,7 +60,7 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           pictures={pictures}
-          handleToggleFavorite={handleToggleFavorite}
+          onToggleFavorite={handleToggleFavorite}
           artPiecesInfo={artPiecesInfo}
         />
       </SWRConfig>

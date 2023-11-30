@@ -4,7 +4,7 @@ import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 export function Spotlight({
   image,
   artist,
-  onToggleFavorite,
+  handleToggleFavorite,
   slug,
   isFavorite,
 }) {
@@ -20,7 +20,7 @@ export function Spotlight({
       <FavoriteButton
         isFavorite={isFavorite}
         slug={slug}
-        onToggleFavorite={() => onToggleFavorite(slug)}
+        onToggleFavorite={() => handleToggleFavorite(slug)}
       ></FavoriteButton>
     </>
   );

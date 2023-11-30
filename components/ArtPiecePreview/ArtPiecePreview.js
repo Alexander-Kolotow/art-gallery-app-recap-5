@@ -19,7 +19,7 @@ export function ArtPiecePreview({ artist, title, image, slug, isFavorite, handle
   isFavorite={isFavorite}
   slug={slug}
   handleToggleFavorite={() => handleToggleFavorite(slug)}
-/>
+></FavoriteButton>
     </>
   );
 }

@@ -20,7 +20,7 @@ export function ArtPieceDetails({ piece, isFavorite, handleToggleFavorite }) {
   isFavorite={isFavorite}
   slug={piece.slug} 
   handleToggleFavorite={() => handleToggleFavorite(piece.slug)} 
-/>
+></FavoriteButton>
     </>
   );
 }

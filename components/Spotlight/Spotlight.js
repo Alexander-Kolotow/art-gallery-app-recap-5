@@ -17,6 +17,7 @@ export function Spotlight({
         alt={`Picture of the Artist`}
       />
       <figcaption>by {artist}</figcaption>
+      <br> </br> <br> </br>
       <FavoriteButton
         isFavorite={isFavorite}
         slug={slug}

@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SWRConfig } from "swr";
 import useSWR from "swr";
 import { Layout } from "@/components/Layout/Layout";
@@ -34,10 +34,9 @@ export default function App({ Component, pageProps }) {
 
   function handleToggleFavorite(slug) {
     setArtPiecesInfo((prevArtPiecesInfo) => {
-      // find the movie in the state
+      
       const piece = prevArtPiecesInfo.find((piece) => piece.slug === slug);
 
-      // if the movie is already in the state, toggle the isFavorite property
       if (piece) {
         return prevArtPiecesInfo.map((piece) =>
           piece.slug === slug
@@ -45,8 +44,7 @@ export default function App({ Component, pageProps }) {
             : piece
         );
       }
-
-      // if the movie is not in the state, add it with isFavorite set to true
+      
       return [...prevArtPiecesInfo, { slug, isFavorite: true }];
     });
   }

@@ -1,8 +1,14 @@
 export function FavoriteButton({ handleToggleFavorite, isFavorite, slug }) {
+
+  const handleClick = () => {
+    handleToggleFavorite(slug);
+  };
+
   return (
-    <button onToggleFavorite={() => handleToggleFavorite(slug)}>
+    <button onClick={handleClick}>
       {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
     </button>
   );
 }
+
 

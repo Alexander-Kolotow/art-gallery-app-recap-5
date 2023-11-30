@@ -16,10 +16,10 @@ export function ArtPiecePreview({ artist, title, image, slug, isFavorite, handle
       </Link>
       <figcaption>by {artist}</figcaption>
       <FavoriteButton
-        isFavorite={isFavorite}
-        slug={slug}
-        onToggleFavorite={() => handleToggleFavorite(slug)}
-      />
+  isFavorite={isFavorite}
+  slug={slug}
+  handleToggleFavorite={() => handleToggleFavorite(slug)}
+/>
     </>
   );
 }

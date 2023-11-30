@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 
-export function ArtPieceDetails({ piece, slug, isFavorite, handleToggleFavorite }) {
+export function ArtPieceDetails({ piece, isFavorite, handleToggleFavorite }) {
   return (
     <>
       <h1>{piece.name}</h1>
@@ -17,10 +17,10 @@ export function ArtPieceDetails({ piece, slug, isFavorite, handleToggleFavorite 
         <li>{piece.year}</li>
       </ul>
       <FavoriteButton
-        isFavorite={isFavorite}
-        slug={slug}
-        onToggleFavorite={() => handleToggleFavorite(slug)}
-      />
+  isFavorite={isFavorite}
+  slug={piece.slug} 
+  handleToggleFavorite={() => handleToggleFavorite(piece.slug)} 
+/>
     </>
   );
 }

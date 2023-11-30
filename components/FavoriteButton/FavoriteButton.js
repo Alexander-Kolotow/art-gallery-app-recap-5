@@ -1,4 +1,14 @@
-export function FavoriteButton({ handleToggleFavorite, isFavorite, slug }) {
+export function FavoriteButton({ handleToggleFavorite, isFavorite }) {
+  return (
+    <button onClick={handleToggleFavorite}>
+      {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+    </button>
+  );
+}
+
+
+
+/*export function FavoriteButton({ isFavorite, handleToggleFavorite }) {
 
   // in der Konsole testen, ob er sich den slug ziehen kann und ob die Funktion definiert ist.
   const handleClick = () => {
@@ -12,6 +22,6 @@ export function FavoriteButton({ handleToggleFavorite, isFavorite, slug }) {
       {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
     </button>
   );
-}
+}*/
 
 

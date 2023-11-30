@@ -20,7 +20,7 @@ export function Spotlight({
       <FavoriteButton
         isFavorite={isFavorite}
         slug={slug}
-        onToggleFavorite={() => handleToggleFavorite(slug)}
+        handleToggleFavorite={() => handleToggleFavorite(slug)}
       ></FavoriteButton>
     </>
   );

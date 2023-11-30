@@ -20,7 +20,7 @@ export default function SpotlightPage({
         image={randomPicture.imageSource}
         artist={randomPicture.artist}
         slug={randomPicture.slug}
-        onToggleFavorite={() => handleToggleFavorite(randomPicture.slug)}
+        handleToggleFavorite={() => handleToggleFavorite(randomPicture.slug)}
         isFavorite={isFavorite}
       />
     </>
